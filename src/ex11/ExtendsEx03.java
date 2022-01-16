@@ -1,21 +1,17 @@
 package ex11;
 
-import java.util.jar.Attributes.Name;
-
 // 1. start 메서드에서 name을 출력해보세요!!
 // 2. start 메서드에서 name 값을 변경해서 출력해보세요!!
 class 애완동물 {
     void sound() {
     }
 
-    // 무효화됨
+    // 무효화됨.
     void printName() {
-
     }
 
-    // 무효화됨
+    // 무효화됨.
     void changeName() {
-
     }
 }
 
@@ -42,6 +38,7 @@ class 고양이 extends 애완동물 {
 
     void changeName() {
         name = "변경된 고양이";
+        System.out.println(name);
     }
 }
 
@@ -49,17 +46,18 @@ public class ExtendsEx03 {
 
     static void start(애완동물 u1) {
         u1.sound();
+        // System.out.println(u1.name);
         u1.printName();
         u1.changeName();
         u1.printName();
-        System.out.println("=========");
+        System.out.println("==========");
     }
 
     public static void main(String[] args) {
-        애완동물 cat = new 고양이();
+        애완동물 cat = new 고양이(); // 고양이(printName), 애완동물(printName)
         start(cat);
 
-        애완동물 dog = new 강아지();
+        애완동물 dog = new 강아지(); // 강아지(XXXXX), 애완동물(printName)
         start(dog);
     }
 }
