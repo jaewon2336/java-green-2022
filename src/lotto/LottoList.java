@@ -57,7 +57,7 @@ public class LottoList {
 
         // ArrayList에 numberSet 1개씩 저장
         List<Set<Integer>> lottoList = new ArrayList<>();
-        lottoList.add(lottoNumSort);
+        //lottoList.add(lottoNumSort);
 
         // System.out.println(lottoList);
         System.out.println("--------------------------");
