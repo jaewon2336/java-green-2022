@@ -1,43 +1,43 @@
-package data00;
+package datatest;
 
 import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
-public class ResponseDto {
-    private Response response; // 변수명을 key값과 반드시 동일하게
+@Data
+public class FlightDto {
+    private Response response;
 
-    @Data
     @AllArgsConstructor
+    @Data
     class Response {
-        private Header header; // 변수명을 key값과 반드시 동일하게
-        private Body body; // 변수명을 key값과 반드시 동일하게
+        private Header header;
+        private Body body;
 
-        @Data
         @AllArgsConstructor
+        @Data
         class Header {
             private String resultCode;
             private String resultMsg;
         }
 
-        @Data
         @AllArgsConstructor
+        @Data
         class Body {
             private Items items;
             private int numOfRows;
             private int pageNo;
             private int totalCount;
 
-            @Data
             @AllArgsConstructor
+            @Data
             class Items {
                 private List<Item> item;
 
-                @Data
                 @AllArgsConstructor
+                @Data
                 class Item {
                     private String airlineNm;
                     private String arrAirportNm;
