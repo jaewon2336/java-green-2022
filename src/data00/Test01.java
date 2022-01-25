@@ -29,7 +29,7 @@ public class Test01 {
             System.out.println("받은 문자열 : " + responseJson);
             Gson gson = new Gson();
             ResponseDto dto = gson.fromJson(responseJson, ResponseDto.class);
-
+            // 변경
             // System.out.println(dto);
             // System.out.println(dto.getResponse().getBody().getItems().getItem().get(0));
 
