@@ -25,7 +25,7 @@ public class DownloadWeather {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 선 연결
 
             BufferedReader br = new BufferedReader( // 읽어오기
-                    new InputStreamReader(conn.getInputStream()));
+                    new InputStreamReader(conn.getInputStream(), "utf-8"));
 
             String responseJson = br.readLine(); // 버퍼 비우기
             Gson gson = new Gson();
@@ -41,6 +41,8 @@ public class DownloadWeather {
 
         } catch (Exception e) {
             System.out.println("주소 입력이 잘못되었습니다.");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
         }
 
         return null;
