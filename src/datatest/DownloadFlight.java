@@ -16,30 +16,30 @@ public class DownloadFlight {
     // DownloadFlight.getFlightList("20220126", "제주", "김해");
 
     public static List<Item> getFlightList(
-            String depPlandTime, // 출발일 key
-            String depAirportNm, // 출발공항 이름 key
-            String arrAirportNm) { // 도착공항 이름 key
+            String depPlandTime,
+            String depAirportNm,
+            String arrAirportNm) {
 
         // 공항목록을 조회하여 Map에 담는다.
         Map<String, String> airportMap = DownloadAirport.getAirportList();
-
-        String depAirportId = airportMap.get(depAirportNm); // 출발공항 이름 value
-        String arrAirportId = airportMap.get(arrAirportNm); // 도착공항 이름 value
+        String depAirportId = airportMap.get(depAirportNm); // 출발공항 key
+        String arrAirportId = airportMap.get(arrAirportNm); // 도착공항 key
 
         try {
             URL url = new URL(
                     "http://openapi.tago.go.kr/openapi/service/DmstcFlightNvgInfoService/getFlightOpratInfoList?serviceKey=wJmmW29e3AEUjwLioQR22CpmqS645ep4S8TSlqtSbEsxvnkZFoNe7YG1weEWQHYZ229eNLidnI2Yt5EZ3Stv7g%3D%3D&numOfRows=10&pageNo=1&depAirportId="
                             + depAirportId + "&arrAirportId=" + arrAirportId + "&depPlandTime="
                             + depPlandTime + "&_type=json");
-
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(conn.getInputStream(), "utf-8"));
 
             String responseJson = br.readLine();
             Gson gson = new Gson();
-            FlightDto dto = gson.fromJson(responseJson, FlightDto.class);
-            List<Item> result = dto.getResponse().getBody().getItems().getItem();
+            FlightDto responseDto = gson.fromJson(responseJson, FlightDto.class);
+
+            List<Item> result = responseDto.getResponse().getBody().getItems().getItem();
 
             return result;
 
