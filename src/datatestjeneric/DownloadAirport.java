@@ -1,4 +1,4 @@
-package datatest;
+package datatestjeneric;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-import datatest.AirportDto.Response.Body.Items.Item;
+import datatestjeneric.ResponseDto.Response.Body.Items.AirportItem;
 
 public class DownloadAirport {
     // 공항 목록을 조회하여 Map에 담아서 return 하는 메서드
@@ -30,9 +30,10 @@ public class DownloadAirport {
 
             String responseJson = br.readLine();
             Gson gson = new Gson();
-            AirportDto responseDto = gson.fromJson(responseJson, AirportDto.class);
+            ResponseDto responseDto = gson.fromJson(responseJson, ResponseDto.class);
 
-            List<Item> result = responseDto.getResponse().getBody().getItems().getItem();
+            @SuppressWarnings("unchecked")
+            List<AirportItem> result = responseDto.getResponse().getBody().getItems().getItem();
 
             for (int i = 0; i < result.size(); i++) {
                 airportMap.put(result.get(i).getAirportNm(), result.get(i).getAirportId()); // put(키, 값)

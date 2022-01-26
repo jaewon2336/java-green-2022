@@ -1,9 +1,9 @@
-package datatest;
+package datatestjeneric;
 
 import java.util.List;
 import java.util.Scanner;
 
-import datatest.FlightDto.Response.Body.Items.Item;;
+import datatestjeneric.ResponseDto.Response.Body.Items.FlightItem;;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class MainApp {
             System.exit(0);
         }
 
-        List<Item> flighList = DownloadFlight.getFlightList(depPlandTime, depAirportNm, arrAirportNm);
+        List<FlightItem> flighList = DownloadFlight.getFlightList(depPlandTime, depAirportNm, arrAirportNm);
         // System.out.println(flightList);
         for (int i = 0; i < flighList.size(); i++) {
             System.out.println("========================");

@@ -1,4 +1,4 @@
-package datatest;
+package datatestjeneric;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,13 +9,13 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-import datatest.FlightDto.Response.Body.Items.Item;
+import datatestjeneric.ResponseDto.Response.Body.Items.FlightItem;
 
 public class DownloadFlight {
     // 특정 날짜에 특정 출발지에서 특정 목적지로 도착하는 항공편 정보 가져오는 메서드
     // DownloadFlight.getFlightList("20220126", "제주", "김해");
 
-    public static List<Item> getFlightList(
+    public static List<FlightItem> getFlightList(
             String depPlandTime,
             String depAirportNm,
             String arrAirportNm) {
@@ -37,9 +37,10 @@ public class DownloadFlight {
 
             String responseJson = br.readLine();
             Gson gson = new Gson();
-            FlightDto responseDto = gson.fromJson(responseJson, FlightDto.class);
+            ResponseDto responseDto = gson.fromJson(responseJson, ResponseDto.class);
 
-            List<Item> result = responseDto.getResponse().getBody().getItems().getItem();
+            @SuppressWarnings("unchecked")
+            List<FlightItem> result = responseDto.getResponse().getBody().getItems().getItem();
 
             return result;
 
