@@ -6,8 +6,8 @@ import java.util.List;
 public class MainApp {
 
     public static void main(String[] args) {
-        Customer customer = new Customer();
-        Barista barista = new Barista();
+        Customer customer = new 홍길동();
+        Barista barista = new 공유();
 
         MenuItem m1 = new MenuItem("아메리카노", 1500);
         MenuItem m2 = new MenuItem("까페라떼", 2000);
