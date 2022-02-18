@@ -17,8 +17,6 @@ public class HospitalApp {
             String sql = "INSERT INTO hospital(addr, mgtStaDd, pcrPsblYn, ratPsblYn, recuClCd, rprtWorpClicFndtTgtYn, sgguCdNm, sidoCdNm, telno, XPosWgs84, YPosWgs84, yadmNm, ykihoEnc) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql);
 
-            // for (int count = 0; count < (hospitalList.size() / 300) + 1; count++) {
-
             for (int i = 0; i < hospitalList.size(); i++) {
 
                 pstmt.setString(1, hospitalList.get(i).getAddr());
@@ -38,7 +36,6 @@ public class HospitalApp {
                 pstmt.executeUpdate();
             }
             pstmt.executeUpdate();
-            // }
 
             System.out.println("통신끝");
 
