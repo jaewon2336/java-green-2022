@@ -35,7 +35,7 @@ public class HospitalApp {
 
                 pstmt.executeUpdate();
             }
-            pstmt.executeUpdate();
+            // pstmt.executeUpdate();
 
             System.out.println("통신끝");
 
