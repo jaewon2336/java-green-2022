@@ -46,7 +46,8 @@ public class DownloadHos {
             responseDto = gson.fromJson(responseJson, ResponseDto.class);
 
             item = responseDto.getResponse().getBody().getItems().getItem();
-
+            System.out.println(item.size());
+            System.out.println();
             // Dto의 item 정보들을 자바 오브젝트(Hospital.class)에 옮겨담기 -> 컬렉션 사용
 
             for (int i = 0; i < item.size(); i++) {
