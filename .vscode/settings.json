@@ -8,6 +8,7 @@
         "c:\\workspace\\downloads\\gson-2.8.5.jar",
         "c:\\green_workspace\\downloads\\gson-2.8.5.jar",
         "c:\\green_workspace\\downloads\\javaSDK-2.2.jar",
-        "c:\\green_workspace\\downloads\\json-simple-1.1.1.jar"
+        "c:\\green_workspace\\downloads\\json-simple-1.1.1.jar",
+        "c:\\green_workspace\\db_lab\\db_project\\lib\\ojdbc8-21.1.0.0.jar"
     ]
 }
